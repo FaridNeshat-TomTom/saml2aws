@@ -60,7 +60,7 @@ func (ac *Client) Authenticate(loginDetails *creds.LoginDetails) (string, error)
 
 	awsURN := url.QueryEscape(ac.idpAccount.AmazonWebservicesURN)
 
-	adfsURL := fmt.Sprintf("%s/adfs/ls/IdpInitiatedSignOn.aspx?loginToRp=%s", loginDetails.URL, awsURN)
+	adfsURL := fmt.Sprintf("%s/adfs/ls/IdpInitiatedSignOn.aspx?loginToRp=%s&RedirectToIdentityProvider=AD+AUTHORITY", loginDetails.URL, awsURN)
 
 	mfaToken := loginDetails.MFAToken
 
